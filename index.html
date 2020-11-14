@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>ECS Demo</title>
+</head>
+<body>
+    <canvas id="game" width="800" height="600"></canvas>
+
+    <!-- Scripts -->
+    <script>
+        // For tutorial purposes, we'll set up a global object containing 
+        // references to all objects.
+        window.ECS = {
+            Components: {},
+
+            systems: {},
+            entities: [],
+            game: {},
+
+            score: 0
+        };
+
+        // Canvas functionality (NOT ECS specific)
+        // --------------------------------------
+        // For the demo, just grab a reference to the canvas
+        // Some systems (e.g., rendering) need to know about the canvas. We
+        // could pass in a reference to it or store it's state globally like
+        // this:
+        ECS.$canvas = document.getElementById("game");
+        ECS.context = ECS.$canvas.getContext("2d");
+    </script>
+    <script src="./utils.js"></script>
+    <script src="./Entity.js"></script>
+    <script src="./Components.js"></script>
+    <script src="./systems/render.js"></script>
+    <script src="./game.js"></script>
+
+    <script>
+        ECS.game = new ECS.Game();
+    </script>
+</body>
+</html>
