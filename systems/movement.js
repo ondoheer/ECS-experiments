@@ -14,17 +14,17 @@
         if(curEntity.components.moving){
             switch (curEntity.components.moving.direction) {
                 case "top":
-                    curEntity.components.position.x -= curEntity.components.moving.speed;
+                    curEntity.components.position.y -= curEntity.components.moving.speed;
                     break;
                 case "right":
-                    curEntity.components.position.y += curEntity.components.moving.speed;
+                    curEntity.components.position.x += curEntity.components.moving.speed;
                     break;
 
                 case "bottom":
-                    curEntity.components.position.x += curEntity.components.moving.speed;
+                    curEntity.components.position.y += curEntity.components.moving.speed;
                     break;
                 case "left":
-                    curEntity.components.position.y -= curEntity.components.moving.speed;
+                    curEntity.components.position.x -= curEntity.components.moving.speed;
                     break;
 
             

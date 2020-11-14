@@ -17,14 +17,11 @@ ECS.Game = function Game(){
     var entity;
 
     // Create a bunch of random entities
-    for(var i=0; i < 20; i++){
-        entity = new ECS.Entity();
-        entity.addComponent( new ECS.Components.Appearance());
-        entity.addComponent( new ECS.Components.Position());
-        entity.addComponent(new ECS.Components.Moving());
-
-        entities[entity.id] = entity;
-    }
+    // for(var i=0; i < 20; i++){
+        
+    //     entity = ECS.Assemblages.Square()
+    //     entities[entity.id] = entity;
+    // }
 
     // store reference to entities
     ECS.entities = entities;
@@ -34,7 +31,9 @@ ECS.Game = function Game(){
     // Setup the array of systems. The order of the systems is likely critical, 
     // so ensure the systems are iterated in the right order
     var systems = [
+        ECS.systems.generate,
         ECS.systems.movement,
+        ECS.systems.remove,
         ECS.systems.render
     ];
 

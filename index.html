@@ -31,11 +31,20 @@
         ECS.$canvas = document.getElementById("game");
         ECS.context = ECS.$canvas.getContext("2d");
     </script>
+    <!-- Utility functions -->
     <script src="./utils.js"></script>
+    <!-- Entity system -->
     <script src="./Entity.js"></script>
+    <!-- Components to add or remove -->
     <script src="./Components.js"></script>
+    <!-- Assemblages -->
+    <script src="./Assemblages.js"></script>
+    <!-- Systems to handle entities -->
+    <script src="./systems/keepSquaresAtMax.js"></script>
     <script src="./systems/movement.js"></script>
+    <script src="./systems/removeFromCanvas.js"></script>
     <script src="./systems/render.js"></script>
+    <!-- Game loop and initialization -->
     <script src="./game.js"></script>
 
     <script>
