@@ -9,7 +9,7 @@
     if (ECS.Entity.prototype._count < 20 ){// should come from config file
         entity = ECS.Assemblages.Square()
         entities[entity.id] = entity;
-        entity.print()
+        //entity.print()
     } 
      
  }
