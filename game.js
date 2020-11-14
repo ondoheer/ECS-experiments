@@ -22,6 +22,9 @@ ECS.Game = function Game(){
     //     entity = ECS.Assemblages.Square()
     //     entities[entity.id] = entity;
     // }
+    var circle = ECS.Assemblages.Circle();
+    entities[circle.id] = circle;
+    console.log(circle);
 
     // store reference to entities
     ECS.entities = entities;

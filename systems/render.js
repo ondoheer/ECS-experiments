@@ -36,31 +36,21 @@ ECS.systems.render = function systemRender ( entities ) {
 
         // Only run logic if entity has relevant components
         // For rendering, we need appearance and position. 
-        if( curEntity.components.appearance && curEntity.components.position ){
+        if( curEntity.components.appearance && curEntity.components.position && curEntity.components.shape ){
+            // console.log(curEntity)
+            switch (curEntity.components.shape.shape) {
+                case "square":
+                    
+                    drawSquare(curEntity);
+                    break;
+                case "circle":
+                    drawCircle(curEntity);
+                    break;
+            
+                default:
+                    break;
+            }
 
-            // Build up the fill style based on the entity's color data
-            fillStyle = `rgba(${curEntity.components.appearance.colors.r},${curEntity.components.appearance.colors.g},${curEntity.components.appearance.colors.b},1)`;
-                
-
-            ECS.context.fillStyle = fillStyle;            
-
-            // draw a little black line around every rect
-            ECS.context.strokeStyle = 'rgba(0,0,0,1)';
-
-            // draw the rect
-            ECS.context.fillRect( 
-                curEntity.components.position.x - curEntity.components.appearance.size,
-                curEntity.components.position.y - curEntity.components.appearance.size,
-                curEntity.components.appearance.size * 2,
-                curEntity.components.appearance.size * 2
-            );
-            // stroke it
-            ECS.context.strokeRect(
-                curEntity.components.position.x - curEntity.components.appearance.size,
-                curEntity.components.position.y - curEntity.components.appearance.size,
-                curEntity.components.appearance.size * 2,
-                curEntity.components.appearance.size * 2
-            );
         }
     }
 };

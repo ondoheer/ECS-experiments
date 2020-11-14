@@ -13,8 +13,18 @@
     Square: function Square(){
         entity = new ECS.Entity();
         entity.addComponent( new ECS.Components.Appearance());
+        entity.addComponent( new ECS.Components.Shape("square"));
+        entity.addComponent( new ECS.Components.Position());
+        entity.addComponent(new ECS.Components.Moving());
+        return entity;
+    },
+    Circle: function Circle(){
+        entity = new ECS.Entity();
+        entity.addComponent( new ECS.Components.Appearance());
+        entity.addComponent( new ECS.Components.Shape({shape:"circle"}));
         entity.addComponent( new ECS.Components.Position());
         entity.addComponent(new ECS.Components.Moving());
         return entity;
     }
+
  }
