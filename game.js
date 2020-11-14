@@ -21,6 +21,7 @@ ECS.Game = function Game(){
         entity = new ECS.Entity();
         entity.addComponent( new ECS.Components.Appearance());
         entity.addComponent( new ECS.Components.Position());
+        entity.addComponent(new ECS.Components.Moving());
 
         entities[entity.id] = entity;
     }
@@ -33,7 +34,8 @@ ECS.Game = function Game(){
     // Setup the array of systems. The order of the systems is likely critical, 
     // so ensure the systems are iterated in the right order
     var systems = [
-       ECS.systems.render
+        ECS.systems.movement,
+        ECS.systems.render
     ];
 
     // Game loop

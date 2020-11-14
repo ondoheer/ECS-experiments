@@ -36,3 +36,17 @@ ECS.Components.Position = function ComponentPosition(params) {
 }
 
 ECS.Components.Position.prototype.name = "position";
+
+ECS.Components.Moving = function ComponentMoving(params) {
+    params = params || {};
+
+    // generate random speed
+    this.speed = params.speed || randomIntFromInterval(1,10);
+
+    directions = ["top","right","bottom","left"];
+    this.direction = params.direction || randomChoice(directions);
+
+    return this;
+}
+
+ECS.Components.Moving.prototype.name = "moving";
